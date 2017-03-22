@@ -1,6 +1,6 @@
-import { createStore } from 'redux';
-import todos from './todos';
+// import { createStore } from 'redux';
 import deepFreeze from 'deep-freeze';
+import todos from './todos';
 
 it('adds a todo', () => {
   const stateBefore = [];
@@ -14,14 +14,14 @@ it('adds a todo', () => {
       id: 0,
       text: 'Learn Redux',
       completed: false,
-    }
+    },
   ];
 
   deepFreeze(stateBefore);
   deepFreeze(action);
 
   expect(
-    todos(stateBefore, action)
+    todos(stateBefore, action),
   ).toEqual(stateAfter);
 });
 
@@ -36,8 +36,8 @@ it('toggles a todo', () => {
     {
       id: 1,
       text: 'Go shopping',
-      completed: false
-    }
+      completed: false,
+    },
   ];
   const action = {
     type: 'TOGGLE_TODO',
@@ -52,8 +52,8 @@ it('toggles a todo', () => {
     {
       id: 1,
       text: 'Go shopping',
-      completed: true
-    }
+      completed: true,
+    },
   ];
 
   deepFreeze(stateBefore);
